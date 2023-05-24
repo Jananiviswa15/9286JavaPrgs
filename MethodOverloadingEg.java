@@ -3,6 +3,7 @@ public class MethodOverloadingEg {
 	
 	//non stat and stat methods can be overloaded 
 	//main method can also overloaded
+	//type / order / no of
 	void display() {
 		System.out.println("say hi");
 	}
@@ -30,7 +31,24 @@ public class MethodOverloadingEg {
 		System.out.println(num1+num2+num3+num4);
 	}
 	
+//	int add(float num1, int num2) {//20.0+13  --> 33.0
+//		return (int) num1+num2;
+//	}
+//	
+//	void add(float num1, int num2) {
+//		
+//	}
 	
+	//add(55)
+	static void add(int num) {
+		System.out.println();
+	}
+	
+	//add(55,false
+	 void add(int num, boolean isMarried) {
+		System.out.println();
+	}
+	//add(89)
 	void add(float num1, float num2) {
 	System.out.println(num1+num2);	
 	}
@@ -41,6 +59,7 @@ public class MethodOverloadingEg {
 	public static void main(String args[]) {
 		MethodOverloadingEg obj = new MethodOverloadingEg();
 		obj.add(10.0f,20.0f);
+		obj.display(10, "dfdf");
 		main("hi");
 		
 	}
