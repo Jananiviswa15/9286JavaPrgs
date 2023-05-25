@@ -1,9 +1,13 @@
+import javax.crypto.KeyAgreement;
 
 //parent --> super/  base 
 //child --> sub derived
 
 //extends
-public class Mobile {
+
+//final keyword --> class, method, attr
+//final cls cant be extended --> string cls, immutable cls
+ public class Mobile {
 
 	int cost;
 	String brandName;
@@ -23,12 +27,16 @@ public class Mobile {
 	void calling() {
 		System.out.println("calling");
 	}
-	
-	void displayDetails() {
+	 void displayDetails() {
 		System.out.println(this.cost+" "+this.brandName);
 	}
 	
-	 void displayDetails(String name) {	
+	//cant override 
+	final void rulesAndRegulations() {
+		System.out.println("u cant change it");
+	}
+	
+	final void displayDetails(String name) {	
 	System.out.println("im param frokm parent");
 	}
 	private void parentsPersonal() {
@@ -58,6 +66,7 @@ class keypadMobile extends Mobile{
 //		this.cost = cost;
 //		this.brandName = brandName;
 	}
+
 	
 	//method overriding
 	void displayDetails() {
@@ -68,4 +77,30 @@ class keypadMobile extends Mobile{
 	void calling() {
 		System.out.println("press buttongs for calling");
 	}
+	
+	
+	//not overriding, becoz parent class method is private, which is not visible to the child
+//	private void parentsPersonal() {
+//		System.out.println("dont touch");
+//	}
+}
+
+class SmartPhone extends keypadMobile{
+
+short screenSize;
+short cameraPxls;
+public SmartPhone() {
+	System.out.println("no arg const");
+}
+
+public SmartPhone(	int cost, String brandName, String buttonColor, short screenSize, short cameraPxls) {
+	super(buttonColor, cost, brandName);
+	this.screenSize = screenSize;
+	this.cameraPxls = cameraPxls;
+}
+
+ void displayDetails() {
+	super.displayDetails();
+	System.out.print(this.screenSize+" "+this.cameraPxls);
+}
 }
