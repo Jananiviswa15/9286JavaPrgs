@@ -11,12 +11,22 @@ public class DriverClass {
 //		//child cls obj, parwnt obj is npt created, a copy it given to child
 //		basicMobile.displayDetails();
 		
-		SmartPhone smartPh1 = new SmartPhone();  //dc, no arg -> mobile, keypad,smartph
-		smartPh1.displayDetails();
+//		SmartPhone smartPh1 = new SmartPhone();  //dc, no arg -> mobile, keypad,smartph
+//		smartPh1.displayDetails();
+//		
+//		
+//		sibling1 siblingObj1 = new sibling1();
+//		siblingObj1.myMethod();
+//		siblingObj1.display();
+		
+	//	keypadMobile.displayDetails(false);
 		
 		
-		sibling1 siblingObj1 = new sibling1();
-		siblingObj1.myMethod();
-		siblingObj1.display();
+		//run t poly
+		Mobile obj = new keypadMobile();
+		obj.displayDetails();  //non stat --> amount of mem it has occupied --> keypadMobile
+		obj.calling();
+
+		obj.displayDetails(true);  //stat --> tyoe of ref of the obj
 	}
 }

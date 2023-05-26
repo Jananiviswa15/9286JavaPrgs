@@ -42,6 +42,10 @@ import javax.crypto.KeyAgreement;
 	private void parentsPersonal() {
 		System.out.println("dont touch");
 	}
+	
+	static void displayDetails(boolean isExperiment) {
+		System.out.println("stat method from parent");
+	} 
 }
 
 
@@ -50,7 +54,10 @@ class keypadMobile extends Mobile{
 	//all objs of kp can aces all the methids and attr except private
 	
 	String buttonColor;
-	
+
+	static void displayDetails(boolean isExperiment) {
+		System.out.println("stat method from child");
+	} 
 	public keypadMobile() {
 		System.out.println("child no arg");
 	}
@@ -74,10 +81,10 @@ class keypadMobile extends Mobile{
 		System.out.print(this.buttonColor);
 	}
 	
-	void calling() {
-		System.out.println("press buttongs for calling");
-	}
-	
+//	void calling() {
+//		System.out.println("press buttongs for calling");
+//	}
+//	
 	
 	//not overriding, becoz parent class method is private, which is not visible to the child
 //	private void parentsPersonal() {
