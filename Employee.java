@@ -1,5 +1,7 @@
 package Hibernate.HibernatePrjcts;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import jakarta.persistence.Transient;
 
 @Entity//(name = "emp_table")//classs name
 @Table(name = "employee_table")
+@DynamicUpdate
 public class Employee {
 
 	@Id
@@ -23,6 +26,14 @@ public class Employee {
 	private String email;
 	private Double salary;
 	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Employee [empId=").append(empId).append(", name=").append(name).append(", email=").append(email)
+				.append(", salary=").append(salary).append(", iDontWantToGoFrDB=").append(iDontWantToGoFrDB)
+				.append("]");
+		return builder.toString();
+	}
 	@Transient
 	private String iDontWantToGoFrDB;
 	
