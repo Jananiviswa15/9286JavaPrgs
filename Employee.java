@@ -1,17 +1,22 @@
-package Hibernate.HibernatePrjcts;
+package OneToMany;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.annotations.DynamicUpdate;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
-@Entity//(name = "emp_table")//classs name
-@Table(name = "employee_table")
+@Entity
 @DynamicUpdate
 public class Employee {
 
@@ -19,24 +24,31 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer empId;
 	
-	@Column(name = "emp_name", length = 20,nullable = false )
+	
+	@Column(name = "emp_name", length = 20,nullable = false)
 	private String name;
 	
 	@Column(name = "emp_mail", unique = true, nullable = false)
 	private String email;
-	private Double salary;
 	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "newtablename", joinColumns = @JoinColumn(name = "employee"),inverseJoinColumns = @JoinColumn(name = "adrs"))
+	private List<Address> adrs = new ArrayList<Address>();  //adrs_adrsid
+	
+	
+	public List<Address> getAdrs() {
+		return adrs;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Employee [empId=").append(empId).append(", name=").append(name).append(", email=").append(email)
-				.append(", salary=").append(salary).append(", iDontWantToGoFrDB=").append(iDontWantToGoFrDB)
-				.append("]");
+				.append(", adrs=").append(adrs).append("]");
 		return builder.toString();
 	}
-	@Transient
-	private String iDontWantToGoFrDB;
-	
+	public void setAdrs(List<Address> adrs) {
+		this.adrs = adrs;
+	}
 	public Integer getEmpId() {
 		return empId;
 	}
@@ -55,10 +67,5 @@ public class Employee {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Double getSalary() {
-		return salary;
-	}
-	public void setSalary(Double salary) {
-		this.salary = salary;
-	}
+	
 }
