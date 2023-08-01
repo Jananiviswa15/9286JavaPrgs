@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!--  <bean id="carObj" class="SpringCore.Car">
+		<property name="brandName" value="AUdi" />
+	</bean>
+
+
+	<bean id="carObj1" class="SpringCore.Car">
+		<property name="brandName" value="KIA" />
+		<property name="cost" value="945895"></property>
+	</bean>  -->
+<!-- 
+	<bean id="bikeObj" class="SpringCore.Bike">
+	<constructor-arg name = "brandName" value = "HD"></constructor-arg>
+	</bean>
+	
+	<bean id="bikeObj1" class="SpringCore.Bike">
+	<constructor-arg name = "engineCC" value = "700"></constructor-arg>
+	<constructor-arg name = "brandName" value = "Yamaha"></constructor-arg>  -->
+	
+	
+	<bean id = "confusingObj" class="SpringCore.Car">
+	<constructor-arg name = "brandName" value = "Yamaha"></constructor-arg>
+	<property name="brandName" value="KIA" />
+	
+	</bean>
+</beans>
