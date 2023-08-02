@@ -7,11 +7,11 @@ public class DriverClass {
 
 	public static void main(String[] args) {
 		
-		ApplicationContext appContext = new ClassPathXmlApplicationContext("Config.xml");
-		Employee employee = (Employee) appContext.getBean("emp");
-		Employee employee1 = (Employee) appContext.getBean("emp1");
+		ApplicationContext appContext = new ClassPathXmlApplicationContext("NewFile1.xml");
+		EdubridgeEmployee employee = (EdubridgeEmployee) appContext.getBean("eduEmp");
+		
 		employee.displayAllDetails();
-		employee1.displayAllDetails();
+		;
 	}
 
 }
