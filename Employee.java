@@ -1,43 +1,52 @@
-package Autowire;
+package Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
+
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Qualifier;
 
 public class Employee {
-	
+
 	private String name;
+	private int age;
+	private String designation;
+	
+	@Resource(name = "panObj1")
+	//@Qualifier("panObj1")
+	private Pancard pancardDetails;
+	
 	
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	@Autowired  //byTYpe / byName
-	@Qualifier("adrsObj")
-	private Address adrs;
-	
-	//@Autowired
-//	public Employee(Address adrs) {
-//	System.out.println("i came here");
-//		this.adrs = adrs;
-//	}
-
-	public Address getAdrs() {
-		return adrs;
+	public int getAge() {
+		return age;
 	}
-
-//	@Autowired  //byTYpe / byName
-//	@Qualifier("adrsObj")
-/*	public void setAdrs(Address adrs) {
-		System.out.println("i came inside setter method");
-		this.adrs = adrs;
-	}*/
-
-	void displayDetails() {
-		System.out.println(name);
-		adrs.displayAddrs();
+	
+	
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getDesignation() {
+		return designation;
+	}
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+	public Pancard getPancardDetails() {
+		return pancardDetails;
+	}
+	public void setPancardDetails(Pancard pancardDetails) {
+		this.pancardDetails = pancardDetails;
+	}
+	
+	
+	void display() {
+		System.out.println(name +" "+ age +" "+designation);
+		pancardDetails.display();
 	}
 }

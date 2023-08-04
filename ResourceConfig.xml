@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+<context:annotation-config/>
+
+	<bean id="pancardDetails" class="Resource.Pancard">
+		<constructor-arg name="panNumber" value="abcd85979"></constructor-arg>
+		<constructor-arg name="nameOnThePancard"
+			value="janani"></constructor-arg>
+	</bean>
+	
+	<bean id="panObj131" class="Resource.Pancard">
+		<constructor-arg name="panNumber" value="12345"></constructor-arg>
+		<constructor-arg name="nameOnThePancard"
+			value="anush324344a"></constructor-arg>
+	</bean>
+	<bean id="empObj" class="Resource.Employee">
+		<property name="name" value="janani viswa"></property>
+		<property name="age" value="28"></property>
+		<property name="designation" value="manager"></property>
+
+
+	</bean>
+</beans>
