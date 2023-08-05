@@ -1,52 +1,52 @@
-package Resource;
+package com.example.demo.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicUpdate;
 
-import javax.annotation.Resource;
-
-import org.springframework.beans.factory.annotation.Qualifier;
-
+@Entity
+@Table(name = "employee_table")
+@DynamicUpdate
 public class Employee {
 
-	private String name;
-	private int age;
-	private String designation;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	
-	@Resource(name = "panObj1")
-	//@Qualifier("panObj1")
-	private Pancard pancardDetails;
+	@Column(name = "first_name", nullable = false)
+	private String firstName;
 	
+	@Column(name = "last_name", nullable = false)
+	private String lastName;
 	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getAge() {
-		return age;
-	}
+	@Column(name = "emp_email", unique = true)
+	private String email;
 	
-	
-	public void setAge(int age) {
-		this.age = age;
+	public String getFirstName() {
+		return firstName;
 	}
-	public String getDesignation() {
-		return designation;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public void setDesignation(String designation) {
-		this.designation = designation;
+	public String getLastName() {
+		return lastName;
 	}
-	public Pancard getPancardDetails() {
-		return pancardDetails;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
-	public void setPancardDetails(Pancard pancardDetails) {
-		this.pancardDetails = pancardDetails;
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	
-	void display() {
-		System.out.println(name +" "+ age +" "+designation);
-		pancardDetails.display();
-	}
 }
